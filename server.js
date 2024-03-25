@@ -311,7 +311,7 @@ async function serveNcmApi(options) {
   /** @type {import('express').Express & ExpressExtension} */
   const appExt = app
 
-  app.get('/wallhaven/:name', async (req, res) => {
+  app.get('/wallhaven/:name/?:id', async (req, res) => {
     const path = `https://wallhaven.cc/api/v1${req.path.replace("/wallhaven", '')}`
     const { data } = await axios.get(path, {
       params: req.query,
